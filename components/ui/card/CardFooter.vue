@@ -2,15 +2,15 @@
 import { cn } from '@/utils'
 
 const props = defineProps({
-	class: {
-		type: String,
-		default: '',
-	},
+  class: {
+    type: String,
+    default: '',
+  },
 })
 </script>
 
 <template>
-	<div :class="cn('p-3 pt-0 text-xs opacity-70 italic', props.class)">
-		<slot />
-	</div>
+  <div :class="cn('p-3 pt-0 text-xs opacity-70 italic', props.class)">
+    <slot />
+  </div>
 </template>
