@@ -1,57 +1,57 @@
 name: CI
 
 on:
-    push:
-        branches: [main, master, develop]
-    pull_request:
-        branches: [main, master, develop]
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
 
 jobs:
-    lint-and-format:
-        name: Линтинг и форматирование
-        runs-on: ubuntu-latest
+  lint-and-format:
+    name: Линтинг и форматирование
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout код
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout код
+        uses: actions/checkout@v4
 
-            - name: Установка Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
-                  cache: "yarn"
+      - name: Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
 
-            - name: Установка зависимостей
-              run: yarn install --frozen-lockfile
+      - name: Установка зависимостей
+        run: yarn install
 
-            - name: Проверка линтинга
-              run: yarn lint
+      - name: Проверка линтинга
+        run: yarn lint
 
-            - name: Проверка форматирования
-              run: yarn format:check
+      - name: Проверка форматирования
+        run: yarn format:check
 
-            - name: Проверка типов TypeScript
-              run: yarn typecheck
+      - name: Проверка типов TypeScript
+        run: yarn typecheck
 
-    build:
-        name: Сборка проекта
-        runs-on: ubuntu-latest
-        needs: lint-and-format
+  build:
+    name: Сборка проекта
+    runs-on: ubuntu-latest
+    needs: lint-and-format
 
-        steps:
-            - name: Checkout код
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout код
+        uses: actions/checkout@v4
 
-            - name: Установка Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
-                  cache: "yarn"
+      - name: Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
 
-            - name: Установка зависимостей
-              run: yarn install --frozen-lockfile
+      - name: Установка зависимостей
+        run: yarn install
 
-            - name: Сборка проекта
-              run: yarn build
-              env:
-                  NODE_ENV: production
+      - name: Сборка проекта
+        run: yarn build
+        env:
+          NODE_ENV: production
