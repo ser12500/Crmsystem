@@ -1,0 +1,9 @@
+.nuxt
+.output
+dist
+node_modules
+*.min.js
+yarn.lock
+package-lock.json
+.git
+
