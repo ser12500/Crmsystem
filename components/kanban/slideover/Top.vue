@@ -14,7 +14,7 @@ const store = useDealSlideStore()
       </h2>
     </KanbanSlideoverLabel>
     <KanbanSlideoverLabel label-text="Группа">
-      {{ store.card.price }}
+      {{ store.card?.price }}
     </KanbanSlideoverLabel>
     <KanbanSlideoverLabel label-text="Статус">
       <UiBadge variant="outline">

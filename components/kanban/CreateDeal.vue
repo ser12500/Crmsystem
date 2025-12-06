@@ -50,7 +50,7 @@ const { mutate, isPending } = useMutation({
 const onSubmit = handleSubmit(values => {
   console.log('🧾 Значения формы перед отправкой:', values)
   console.log('Status перед отправкой:', props.status)
-  values.price = parseInt(values.price, 100)
+  values.price = parseInt(String(values.price), 10)
 
   mutate(values)
 })
