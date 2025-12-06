@@ -49,7 +49,8 @@ export default tseslint.config(
                 },
             ],
             '@typescript-eslint/no-explicit-any': 'warn',
-            'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+            '@typescript-eslint/no-empty-object-type': 'off',
+            'no-console': 'off',
         },
     },
     {
@@ -62,6 +63,7 @@ export default tseslint.config(
                 sourceType: 'module',
             },
             globals: {
+                // Vue Composition API
                 ref: 'readonly',
                 computed: 'readonly',
                 reactive: 'readonly',
@@ -70,11 +72,28 @@ export default tseslint.config(
                 onUnmounted: 'readonly',
                 defineProps: 'readonly',
                 defineEmits: 'readonly',
+                // Nuxt composables
+                useRouter: 'readonly',
+                useRoute: 'readonly',
+                useSeoMeta: 'readonly',
+                navigateTo: 'readonly',
+                // VeeValidate
                 useForm: 'readonly',
                 useField: 'readonly',
+                // Appwrite
                 DB: 'readonly',
+                account: 'readonly',
+                storage: 'readonly',
+                // Pinia stores
+                useAuthStore: 'readonly',
+                useIsLoadingStore: 'readonly',
+                // Browser globals
                 console: 'readonly',
                 process: 'readonly',
+                Event: 'readonly',
+                File: 'readonly',
+                DragEvent: 'readonly',
+                HTMLInputElement: 'readonly',
             },
         },
         plugins: {
@@ -88,6 +107,16 @@ export default tseslint.config(
             'vue/multi-word-component-names': 'off',
             'vue/attributes-order': 'warn',
             '@typescript-eslint/no-unused-expressions': 'off',
+            '@typescript-eslint/no-unused-vars': [
+                'warn',
+                {
+                    vars: 'all',
+                    varsIgnorePattern: '^_',
+                    args: 'after-used',
+                    argsIgnorePattern: '^_',
+                },
+            ],
+            '@typescript-eslint/no-empty-object-type': 'off',
         },
     },
     {
