@@ -1,4 +1,5 @@
-// @ts-nocheck
+// ESLint config file - types are not needed
+// @ts-expect-error - eslint-plugin-nuxt and eslint-config-prettier don't have types
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import vue from 'eslint-plugin-vue'

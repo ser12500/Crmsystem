@@ -71,19 +71,19 @@ const onSubmit = handleSubmit(values => {
       <Icon v-else name="radix-icons:plus-circled" class="fade-in-100 fade-out-0" size="35" />
     </button>
   </div>
-  <form v-if="isOpenForm" @submit="onSubmit" class="form">
-    <UiInput placeholder="ФИО" v-model="name" v-bind="nameAttrs" type="text" class="input" />
-    <UiInput placeholder="Группа" v-model="price" v-bind="priceAttrs" type="text" class="input" />
+  <form v-if="isOpenForm" class="form" @submit="onSubmit">
+    <UiInput v-model="name" placeholder="ФИО" v-bind="nameAttrs" type="text" class="input" />
+    <UiInput v-model="price" placeholder="Группа" v-bind="priceAttrs" type="text" class="input" />
     <UiInput
-      placeholder="Email"
       v-model="customerEmail"
+      placeholder="Email"
       v-bind="customerEmailAttrs"
       type="text"
       class="input"
     />
     <UiInput
-      placeholder="Тема"
       v-model="customerName"
+      placeholder="Тема"
       v-bind="customerNameAttrs"
       type="text"
       class="input"

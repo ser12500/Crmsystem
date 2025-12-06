@@ -11,7 +11,7 @@ const card = data as unknown as IDeal
 </script>
 
 <template>
-  <UiInput placeholder="Оставьте комментарий" v-model="commentRef" @keyup.enter="writeComment" />
+  <UiInput v-model="commentRef" placeholder="Оставьте комментарий" @keyup.enter="writeComment" />
 
   <UiSkeleton v-if="isLoading" class="w-full h-[76px] rounded mt-5" />
   <div v-else-if="card">
